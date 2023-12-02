@@ -1,0 +1,29 @@
+body{
+    background-image: url("./images/OIP.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    color: green;
+    background-color: rgb(179, 245, 191) ;
+    margin-top: 0;
+
+
+}
+table {
+    margin: 0px auto;
+    background-color: rgb(179, 245, 191);
+    color: green;
+
+    border-collapse: collapse;
+    width: 50%;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}

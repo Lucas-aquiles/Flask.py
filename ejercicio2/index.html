@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Datos Personales</title>
+    <link rel="stylesheet" href="style.css"></link>
+       
+</head>
+<body>
+
+<h1>Datos Personales</h1>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <td><input type="text" id="nombre"></td>
+    </tr>
+    <tr>
+        <th>Apellido</th>
+        <td><input type="text" id="apellido"></td>
+    </tr>
+    <tr>
+        <th>Edad</th>
+        <td><input type="text" id="edad"></td>
+    </tr>
+    <tr>
+        <th>Domicilio</th>
+        <td><input type="text" id="domicilio"></td>
+    </tr>
+    <tr>
+        <th>Sexo</th>
+        <td>
+            <label><input type="radio" name="sexo" value="masculino"> Masculino</label>
+            <label><input type="radio" name="sexo" value="femenino"> Femenino</label>
+        </td>
+    </tr>
+    <tr>
+        <th>Provincia</th>
+        <td>
+            <select id="provincia" onchange="mostrarDatos()">
+                <option value="mendoza">Mendoza</option>
+                <option value="cordoba">Córdoba</option>
+                <option value="santafe">Santa Fe</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th>Información</th>
+        <td><textarea id="informacion" rows="4" cols="50" readonly></textarea></td>
+    </tr>
+</table>
+
+<script src="script.js">
+   
+</script>
+
+</body>
+</html>

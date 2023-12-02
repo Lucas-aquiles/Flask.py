@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Alumno</title>
+    <!-- Agrega aquí la referencia al componente de calendario -->
+    <!-- Por ejemplo, puedes usar el componente de Flatpickr -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Configura el componente de calendario
+            flatpickr('.datepicker', {
+                dateFormat: 'Y-m-d'
+            });
+        });
+        
+        function calcularPromedioYMaxima() {
+            // Obtiene los valores ingresados por el usuario
+            var dni = $('#dni').val();
+            var fechaNacimiento = $('#fecha_nacimiento').val();
+            var nombre = $('#nombre').val();
+            var apellido = $('#apellido').val();
+            var notas = $('#notas').val().split(',').map(Number);
+        
+            // Llama a la función del servidor para calcular promedio y máxima nota
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:5000/calcular_notas',
+                data: JSON.stringify({ dni, fechaNacimiento, nombre, apellido, notas }),
+                contentType: 'application/json',
+                success: function(response) {
+                    alert("Promedio: " + response.promedio + "\nMáxima Nota: " + response.maximaNota);
+                },
+                error: function() {
+                    alert("Hubo un error al calcular las notas.");
+                }
+            });
+        }
+        
+        function verificarEdad() {
+            // Obtiene la fecha de nacimiento ingresada por el usuario
+            var fechaNacimiento = $('#fecha_nacimiento').val();
+        
+            // Llama a la función del servidor para verificar la edad
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:5000/verificar_edad',
+                data: JSON.stringify({ fechaNacimiento }),
+                contentType: 'application/json',
+                success: function(response) {
+                    alert("El alumno es " + (response.esMayor ? "mayor" : "menor") + " de edad.");
+                },
+                error: function() {
+                    alert("Hubo un error al verificar la edad.");
+                }
+            });
+        }
+    </script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <h1>Información del Alumno</h1>
+    
+    <label for="dni">DNI:</label>
+    <input type="text" id="dni" required>
+    <br>
+
+    <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+    <input type="text" id="fecha_nacimiento" class="datepicker" required>
+    <br>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required>
+    <br>
+
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" required>
+    <br>
+
+    <label for="notas">Notas (separadas por comas):</label>
+    <input type="text" id="notas" required>
+    <br>
+
+    <button onclick="calcularPromedioYMaxima()">Calcular Promedio y Máxima Nota</button>
+    <button onclick="verificarEdad()">Verificar Edad</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

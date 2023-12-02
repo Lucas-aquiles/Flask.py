@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Datos Personales</title>
+    <link rel="stylesheet" href="style.css"></link>
+       
+</head>
+<body>
+<div class="containerOne"> 
+<h1>Datos Personales del alumno</h1>
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <td><input type="text" id="nombre"></td>
+    </tr>
+    <tr>
+        <th>Apellido</th>
+        <td><input type="text" id="apellido"></td>
+    </tr>
+    <tr>
+        <th>dni</th>
+        <td><input type="text" id="dni"></td>
+    </tr>
+    <tr>
+        <th>Domicilio</th>
+        <td><input type="text" id="domicilio"></td>
+    </tr>
+</table>
+
+<button id="btAlumno">Agregar Alumno</button>
+<h1>Materias Cursadas</h1>
+<table>
+    <tr>
+        <th>Materia</th>
+        <td><input type="text" id="materia"></td>
+    </tr>
+    
+    <tr>
+        <th>Nota</th>
+        <td><input   max="10"  min="0" type="number"  id="nota"></td>
+    </tr>
+    
+</table>
+<button id="btNota">Agregar Materia</button>
+
+</div>
+          <div class="partTwo">
+
+        <h2>Información Personal</h2>
+        <textarea id="informacion" rows="4" cols="50" readonly></textarea>
+        <h2>Materias</h2>
+        <textarea id="infMaterias" rows="4" cols="50" readonly></textarea>
+        <div id="promedio"></div>
+    </div>  
+
+<script src="script.js">
+   
+</script>
+
+</body>
+</html>

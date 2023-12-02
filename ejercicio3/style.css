@@ -1,0 +1,31 @@
+.partTwo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 3rem;
+  background-color: aliceblue;
+  padding: 2rem;
+  color: gray;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("./4pf2e0hh4g121.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  width: 100%;
+}
+.containerOne {
+  width: 30%;
+  height: auto;
+  margin: 0 auto;
+  background-color: aliceblue;
+  color: gray;
+}
+
+button {
+  margin: 1rem;
+  color: blue;
+}

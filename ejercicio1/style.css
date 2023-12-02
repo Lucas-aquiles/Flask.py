@@ -1,0 +1,35 @@
+body {
+    font-family: sans-serif;
+    width: 90%;
+    height: 90vh;
+  }
+  .container{
+    width: 50%;
+    height: 20rem;
+   display: flex;
+   flex-direction: column;
+   margin: 0px auto;
+   align-items: center;
+justify-content: center;
+
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  input {
+    width: 100px;
+    margin:2rem;
+
+  }
+  
+  button {
+    width: 100px;
+    margin-top: 10px;
+  }
+  
+  #resultado {
+    width: 300px;
+    margin-top: 10px;
+  }

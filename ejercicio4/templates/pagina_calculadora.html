@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+</head>
+<body>
+    <h2>Calculadora</h2>
+
+    <!-- Formulario para enviar información por GET -->
+    <form action="/calcular_get" method="get">
+        <label for="num1">Número 1:</label>
+        <input type="text" id="num1" name="num1" required>
+        <br>
+        <label for="num2">Número 2:</label>
+        <input type="text" id="num2" name="num2" required>
+        <br>
+        <label for="operacion_get">Operación:</label>
+        <select id="operacion_get" name="operacion_get">
+            <option value="suma">Suma</option>
+            <option value="resta">Resta</option>
+            <option value="multiplicacion">Multiplicación</option>
+            <option value="division">División</option>
+        </select>
+        <br>
+        <input type="submit" value="Calcular (GET)">
+    </form>
+
+    <br>
+
+    <!-- Formulario para enviar información por POST -->
+    <form action="/calcular_post" method="post">
+        <label for="num1">Número 1:</label>
+        <input type="text" id="num1" name="num1" required>
+        <br>
+        <label for="num2">Número 2:</label>
+        <input type="text" id="num2" name="num2" required>
+        <br>
+        <label for="operacion_post">Operación:</label>
+        <select id="operacion_post" name="operacion_post">
+            <option value="suma">Suma</option>
+            <option value="resta">Resta</option>
+            <option value="multiplicacion">Multiplicación</option>
+            <option value="division">División</option>
+        </select>
+        <br>
+        <input type="submit" value="Calcular (POST)">
+    </form>
+</body>
+</html>

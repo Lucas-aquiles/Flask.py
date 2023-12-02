@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenador de Nombres</title>
+    <script> 
+        function ordenarNombres() {
+            // Obtiene los nombres ingresados por el usuario
+            var nombres = [
+                $('#nombre1').val(),
+                $('#nombre2').val(),
+                $('#nombre3').val(),
+                $('#nombre4').val(),
+                $('#nombre5').val()
+            ];
+        
+            // Llama a la función del servidor para ordenar los nombres
+            $.ajax({
+                type: 'POST',
+                url:'http://127.0.0.1:5000/ordenar_nombres',
+                data: JSON.stringify({ nombres }),
+                contentType: 'application/json',
+                success: function(response) {
+                    // Muestra los nombres ordenados en el objeto HTML elegido (en este caso, un div)
+                    $('#resultado').html('<h2>Nombres Ordenados:</h2><ul>' + response.nombres.join('</li><li>') + '</li></ul>');
+                },
+                error: function() {
+                    alert("Hubo un error al ordenar los nombres.");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Ordenador de Nombres</h1>
+    
+    <label for="nombre1">Nombre 1:</label>
+    <input type="text" id="nombre1" required>
+    <br>
+
+    <label for="nombre2">Nombre 2:</label>
+    <input type="text" id="nombre2" required>
+    <br>
+
+    <label for="nombre3">Nombre 3:</label>
+    <input type="text" id="nombre3" required>
+    <br>
+
+    <label for="nombre4">Nombre 4:</label>
+    <input type="text" id="nombre4" required>
+    <br>
+
+    <label for="nombre5">Nombre 5:</label>
+    <input type="text" id="nombre5" required>
+    <br>
+
+    <button onclick="ordenarNombres()">Ordenar Nombres</button>
+
+    <div id="resultado"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
